@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UCL Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div class="container mx-auto pt-12 px-6">
+        <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold">UCL Dashboard</h1>
+
+        <div class="mt-1 lg:mt-3">
+            <h2 class="text-lg md:text-2xl lg:text-4xl font-medium">Club Search</h2>
+            <div>
+                <p class="text-sm md:text-xl lg:text-2xl">Enter the club you'd like to see data for</p>
+                <search class="text-sm md:text-base mt-3">
+                    <form action="#" class="flex">
+                        <label for="club"></label>
+                        <input type="search" id="clubSearch" placeholder="Enter club name"
+                            class="rounded-md border border-slate-400 py-1 pl-3 lg:w-5/6">
+                        <button type="submit"
+                            class="rounded-md border border-slate-300 px-2 py-1 lg:w-1/6" id="clubLookup">Search</button>
+                    </form>
+                </search>
+            </div>
+        </div>
+
+    </div>
+    <script src="main.js" type="module"></script>
+</body>
+
+</html>
