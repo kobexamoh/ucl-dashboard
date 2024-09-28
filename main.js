@@ -1,3 +1,7 @@
-// hide API key
-require('dotenv').config();
-const userAPIKey = process.env.API_KEY;
+// hide API key via Vite
+const userAPIKey = import.meta.env.VITE_API_KEY;
+
+// test if API key is exporting correctly
+console.log(userAPIKey);
+console.log("working!");
+console.log(userAPIKey);
