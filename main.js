@@ -6,6 +6,5 @@ console.log(userAPIKey);
 console.log("working!");
 console.log(userAPIKey);
 
-// TODO: Check if package.json needs to be added to git structure (as it's getting quite huge)
 // TODO: move application files into src folder
 // TODO: probably delete public folder
