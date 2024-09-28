@@ -7,4 +7,3 @@ console.log("working!");
 console.log(userAPIKey);
 
 // TODO: move application files into src folder
-// TODO: probably delete public folder
