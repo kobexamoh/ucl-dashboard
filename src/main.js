@@ -15,18 +15,25 @@ let requestOptions = {
 
 const baseURL = "https://v3.football.api-sports.io/";
 const params = "teams?league=2&season=2024&id=541";
+const allTeams = "teams?league=2&season=2024"
+
+// fetch ALL teams from the 2024 season (team name and ID)
+fetch(baseURL + allTeams, requestOptions)
+    .then((response) => response.json())
+    .then((data) => console.log(data.response[0].team.name))
+    .catch(error => console.log("error", error));
 
 // fetch general Real Madrid team information
-fetch(baseURL + params, requestOptions)
-    .then(response => {
-        return response.json()
-    })
-    .then((data) => {
-        console.log(data);
-        console.log(data.response[0])
-        console.log(data.response[0].team)
-    })
-    .catch(error => console.log("error", error));
+// fetch(baseURL + params, requestOptions)
+//     .then(response => {
+//         return response.json()
+//     })
+//     .then((data) => {
+//         console.log(data);
+//         console.log(data.response[0])
+//         console.log(data.response[0].team)
+//     })
+//     .catch(error => console.log("error", error));
 
 
 // get club name from search bar and display (TODO: pull into its own function)
