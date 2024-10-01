@@ -16,6 +16,7 @@ let requestOptions = {
 fetch("https://v3.football.api-sports.io/leagues", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
+    .catch(error => console.log("error", error));
 
 
 // get club name from search bar and display (TODO: pull into its own function)
