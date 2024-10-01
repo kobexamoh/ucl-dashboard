@@ -1,7 +1,7 @@
 // hide API key via Vite
 const userAPIKey = import.meta.env.VITE_API_KEY;
 
-// make a test API call to serve Real Madrid UCL information
+// make a test API call to search Champions League 2024 endpoint for Real Madrid (club id 541)
 let myHeaders = new Headers();
 
 myHeaders.append("x-rapidapi-key", userAPIKey);
@@ -13,9 +13,19 @@ let requestOptions = {
     redirect: "follow"
 };
 
-fetch("https://v3.football.api-sports.io/leagues", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
+const baseURL = "https://v3.football.api-sports.io/";
+const params = "teams?league=2&season=2024&id=541";
+
+// fetch general Real Madrid team information
+fetch(baseURL + params, requestOptions)
+    .then(response => {
+        return response.json()
+    })
+    .then((data) => {
+        console.log(data);
+        console.log(data.response[0])
+        console.log(data.response[0].team)
+    })
     .catch(error => console.log("error", error));
 
 
@@ -24,7 +34,7 @@ let userQuery = document.querySelector("#userQuery");
 
 userQuery.addEventListener("submit", createClubDash);
 
-function createClubDash(evt){
+function createClubDash(evt) {
     let clubName = userQuery.children[1].value;
     evt.preventDefault();
     console.log(clubName);
