@@ -33,3 +33,7 @@ function createClubDash(evt){
     console.log(clubName);
     return clubName;
 };
+
+// TODO: display club name in the page
+// if the club name exists in the API, insert it into the page for the dashboard to be loaded
+// else, say "Club not found"
