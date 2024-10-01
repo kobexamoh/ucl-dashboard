@@ -20,3 +20,16 @@ let requestOptions = {
 fetch("https://v3.football.api-sports.io/leagues", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
+
+
+// get club name from search bar and display (TODO: pull into its own function)
+let userQuery = document.querySelector("#userQuery");
+
+userQuery.addEventListener("submit", createClubDash);
+
+function createClubDash(evt){
+    let clubName = userQuery.children[1].value;
+    evt.preventDefault();
+    console.log(clubName);
+    return clubName;
+};
