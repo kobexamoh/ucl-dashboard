@@ -1,10 +1,6 @@
 // hide API key via Vite
 const userAPIKey = import.meta.env.VITE_API_KEY;
 
-// test if API key is exporting correctly
-console.log(userAPIKey);
-
-
 // make a test API call to serve Real Madrid UCL information
 let myHeaders = new Headers();
 
