@@ -34,3 +34,5 @@ function createClubDash(evt){
 // TODO: display club name in the page
 // if the club name exists in the API, insert it into the page for the dashboard to be loaded
 // else, say "Club not found"
+
+// TODO: on program load, send request to API for all teams in 2024 UCL and their IDs; store that to check against for the team that the user enters
