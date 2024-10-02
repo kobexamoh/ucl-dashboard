@@ -17,6 +17,18 @@ const baseURL = "https://v3.football.api-sports.io/";
 const params = "teams?league=2&season=2024&id=541";
 const allTeams = "teams?league=2&season=2024"
 
+// on page load, create an empty object
+
+// get the teams and their IDs from the API
+
+// place the teams and IDs into the newly created object as key value pairs
+
+// normalize the search query and compare it against the keys in the object
+
+// if they are not found, render the "sorry, team not in this year's competition" item
+
+// otherwise, begin to render the dashboard
+
 // fetch ALL teams from the 2024 season (team name and ID)
 fetch(baseURL + allTeams, requestOptions)
     .then((response) => response.json())
