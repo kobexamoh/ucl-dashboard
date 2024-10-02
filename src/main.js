@@ -20,7 +20,7 @@ const allTeams = "teams?league=2&season=2024"
 // fetch ALL teams from the 2024 season (team name and ID)
 fetch(baseURL + allTeams, requestOptions)
     .then((response) => response.json())
-    .then((data) => console.log(data.response[0].team.name))
+    .then((data) => console.log(data.response))
     .catch(error => console.log("error", error));
 
 // fetch general Real Madrid team information
@@ -53,3 +53,97 @@ function createClubDash(evt) {
 // else, say "Club not found"
 
 // TODO: on program load, send request to API for all teams in 2024 UCL and their IDs; store that to check against for the team that the user enters
+
+// sample data based on response object
+let bigArray = [
+     {
+        team:{
+            code: "LIV",
+            country: "England",
+            founded: 1892,
+            id: 40,
+            logo: "https://media.api-sports.io/football/teams/40.png",
+            name: "Liverpool",
+            national: false
+        },
+        venue: {
+            address: "Anfield Road",
+            capacity: 55212,
+            city: "Liverpool",
+            id: 550,
+            image: "https://media.api-sports.io/football/venues/550.png",
+            name: "Anfield",
+            surface: "grass"
+        }
+     },
+     {
+        team:{
+            code: "ARS",
+            country: "England",
+            founded: 1886,
+            id: 42,
+            logo: "https://media.api-sports.io/football/teams/42.png",
+            name: "Arsenal",
+            national: false
+        },
+        venue: {
+            address: "Queensland Road",
+            capacity: 60383,
+            city: "London",
+            id: 494,
+            image: "https://media.api-sports.io/football/venues/494.png",
+            name: "Emirates Stadium",
+            surface: "grass"
+        }
+     },
+     {
+        team:{
+            code: "MAC",
+            country: "England",
+            founded: 1880,
+            id: 50,
+            logo: "https://media.api-sports.io/football/teams/50.png",
+            name: "Manchester City",
+            national: false
+        },
+        venue: {
+            address: "Rowsley Street",
+            capacity: 55097,
+            city: "Manchester",
+            id: 555,
+            image: "https://media.api-sports.io/football/venues/555.png",
+            name: "Etihad Stadium",
+            surface: "grass"
+        }
+     },
+     {
+        team:{
+            code: "PAR",
+            country: "France",
+            founded: 1970,
+            id: 85,
+            logo: "https://media.api-sports.io/football/teams/85.png",
+            name: "Paris Saint Germain",
+            national: false
+        },
+        venue: {
+            address: "24, rue du Commandant Guilbaud",
+            capacity: 47929,
+            city: "Paris",
+            id: 671,
+            image: "https://media.api-sports.io/football/venues/671.png",
+            name: "Parc des Princes",
+            surface: "grass"
+        }
+     }
+]
+
+// possible format of data i want to work with
+let stadiumNameID = [
+    {
+        "Liverpool": 40,
+        "Arsenal": 42,
+        "Manchester City": 50,
+        "Paris Saint Germain": 85
+    }
+]
