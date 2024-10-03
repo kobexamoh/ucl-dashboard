@@ -18,8 +18,28 @@ const params = "teams?league=2&season=2024&id=541";
 const allTeams = "teams?league=2&season=2024"
 
 // on page load, create an empty object
+let clubNameIDs = {};
 
 // get the teams and their IDs from the API
+let massArray = [];
+
+function getTeamsandIDs() { // effectively, the function is a Promise
+    return fetch(baseURL + allTeams, requestOptions) // make fetch request (need to return fetch response so it can be used later)
+    .then((response) => response.json()) // parse as JSON
+    .then((data) => {
+        massArray = data.response; // extract data from API and store in array
+        globalThis.massArray = massArray; // make available as global var for testing in console
+        return massArray;
+    })
+    .catch((error) => { // error handling
+        console.log("error", error)
+    });
+}
+
+// call the function
+getTeamsandIDs().then((massArray) => {
+    console.log("Here's what was fetched", massArray);
+})
 
 // place the teams and IDs into the newly created object as key value pairs
 
@@ -28,25 +48,6 @@ const allTeams = "teams?league=2&season=2024"
 // if they are not found, render the "sorry, team not in this year's competition" item
 
 // otherwise, begin to render the dashboard
-
-// fetch ALL teams from the 2024 season (team name and ID)
-fetch(baseURL + allTeams, requestOptions)
-    .then((response) => response.json())
-    .then((data) => console.log(data.response))
-    .catch(error => console.log("error", error));
-
-// fetch general Real Madrid team information
-// fetch(baseURL + params, requestOptions)
-//     .then(response => {
-//         return response.json()
-//     })
-//     .then((data) => {
-//         console.log(data);
-//         console.log(data.response[0])
-//         console.log(data.response[0].team)
-//     })
-//     .catch(error => console.log("error", error));
-
 
 // get club name from search bar and display (TODO: pull into its own function)
 let userQuery = document.querySelector("#userQuery");
