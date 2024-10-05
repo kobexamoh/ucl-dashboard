@@ -39,12 +39,16 @@ function getTeamsandIDs() { // effectively, the function is a Promise
 // call the function
 getTeamsandIDs().then((massArray) => {
     console.log("Here's what was fetched", massArray);
-})
 
-// place the teams and IDs into the newly created object as key value pairs
-massArray.forEach(element => Object.defineProperty(clubNameIDs, element.team.name, {
-    value: element.team.id
-}));
+    // place the teams and IDs into the newly created object as key value pairs
+    massArray.forEach(element => Object.defineProperty(clubNameIDs, element.team.name, {
+        value: element.team.id
+    }));
+
+    console.log("Here's the new list of club names and their IDs", clubNameIDs);
+
+    return clubNameIDs;
+});
 
 // normalize the search query and compare it against the keys in the object
 
