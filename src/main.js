@@ -42,6 +42,9 @@ getTeamsandIDs().then((massArray) => {
 })
 
 // place the teams and IDs into the newly created object as key value pairs
+massArray.forEach(element => Object.defineProperty(clubNameIDs, element.team.name, {
+    value: element.team.id
+}));
 
 // normalize the search query and compare it against the keys in the object
 
