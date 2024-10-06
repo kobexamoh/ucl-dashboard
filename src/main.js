@@ -38,7 +38,7 @@ function getTeamsandIDs() { // effectively, the function is a Promise
 
 // call the function
 getTeamsandIDs().then((massArray) => {
-    console.log("Here's what was fetched", massArray);
+    // console.log("Here's what was fetched", massArray);
 
     // place the teams and IDs into the newly created object as key value pairs
     massArray.forEach(element => Object.defineProperty(clubNameIDs, element.team.name, {
@@ -48,6 +48,23 @@ getTeamsandIDs().then((massArray) => {
     console.log("Here's the new list of club names and their IDs", clubNameIDs);
 
     return clubNameIDs;
+}).then(() => {
+    console.log("Here's the second list of club names and their IDs to see if it's visible in a new block", clubNameIDs);
+
+    let userQuery = document.querySelector("#userQuery");
+
+    userQuery.addEventListener("submit", createClubDash);
+
+    return clubNameIDs;
+
+
+    function createClubDash(evt) {
+        let clubName = userQuery.children[1].value;
+        evt.preventDefault();
+        console.log(clubName);
+        console.log(clubNameIDs)
+        return clubName;
+    };
 });
 
 // normalize the search query and compare it against the keys in the object
@@ -56,17 +73,6 @@ getTeamsandIDs().then((massArray) => {
 
 // otherwise, begin to render the dashboard
 
-// get club name from search bar and display (TODO: pull into its own function)
-let userQuery = document.querySelector("#userQuery");
-
-userQuery.addEventListener("submit", createClubDash);
-
-function createClubDash(evt) {
-    let clubName = userQuery.children[1].value;
-    evt.preventDefault();
-    console.log(clubName);
-    return clubName;
-};
 
 // TODO: display club name in the page
 // if the club name exists in the API, insert it into the page for the dashboard to be loaded
