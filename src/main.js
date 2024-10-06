@@ -14,7 +14,6 @@ let requestOptions = {
 };
 
 const baseURL = "https://v3.football.api-sports.io/";
-const params = "teams?league=2&season=2024&id=541";
 const allTeams = "teams?league=2&season=2024"
 
 // on page load, create an empty object
