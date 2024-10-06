@@ -37,47 +37,34 @@ function getTeamsandIDs() { // effectively, the function is a Promise
 
 // call the function
 getTeamsandIDs().then((massArray) => {
-    // console.log("Here's what was fetched", massArray);
-
     // place the teams and IDs into the newly created object as key value pairs
     massArray.forEach(element => Object.defineProperty(clubNameIDs, element.team.name, {
         value: element.team.id
     }));
-
-    console.log("Here's the new list of club names and their IDs", clubNameIDs);
-
-    return clubNameIDs;
-}).then(() => {
-    console.log("Here's the second list of club names and their IDs to see if it's visible in a new block", clubNameIDs);
-
-    let userQuery = document.querySelector("#userQuery");
-
-    userQuery.addEventListener("submit", createClubDash);
-
-    return clubNameIDs;
-
-
-    function createClubDash(evt) {
-        let clubName = userQuery.children[1].value;
-        evt.preventDefault();
-        console.log(clubName);
-        console.log(clubNameIDs)
-        return clubName;
-    };
 });
 
+// START OF TODO: display club name in the page
 // normalize the search query and compare it against the keys in the object
 
 // if they are not found, render the "sorry, team not in this year's competition" item
 
 // otherwise, begin to render the dashboard
+// place event listener on the search area
+let userQuery = document.querySelector("#userQuery");
+userQuery.addEventListener("submit", createClubDash);
 
-
-// TODO: display club name in the page
-// if the club name exists in the API, insert it into the page for the dashboard to be loaded
-// else, say "Club not found"
-
-// TODO: on program load, send request to API for all teams in 2024 UCL and their IDs; store that to check against for the team that the user enters
+// check if the query is found in the list of clubs this season
+function createClubDash(evt) {
+    let clubName = userQuery.children[1].value;
+    evt.preventDefault();
+    if (clubNameIDs.hasOwnProperty(clubName)) {
+        console.log("Club in list!")
+      } else {
+        console.log("Club not in list!")
+      }
+    //return clubName;
+};
+// END OF TODO
 
 // sample data based on response object
 let bigArray = [
