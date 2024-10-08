@@ -53,14 +53,20 @@ getTeamsandIDs().then((massArray) => {
 let userQuery = document.querySelector("#userQuery");
 userQuery.addEventListener("submit", createClubDash);
 
+// select for the "no clubs" or "clubs found" div
+let resultsDash = document.querySelector("#results");
+let noResults = document.querySelector("#no-results");
+
 // check if the query is found in the list of clubs this season
 function createClubDash(evt) {
     let clubName = userQuery.children[1].value;
     evt.preventDefault();
     if (clubNameIDs.hasOwnProperty(clubName)) {
-        console.log("Club in list!")
+        // console.log("Club in list!")
+        resultsDash.classList.remove("hidden");
       } else {
-        console.log("Club not in list!")
+        // console.log("Club not in list!")
+        noResults.classList.remove("hidden");
       }
     //return clubName;
 };
