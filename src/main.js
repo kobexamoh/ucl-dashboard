@@ -62,8 +62,8 @@ function createClubDash(evt) {
     let clubName = userQuery.children[1].value;
     evt.preventDefault();
     if (clubNameIDs.hasOwnProperty(clubName)) {
-        // console.log("Club in list!")
-        resultsDash.classList.remove("hidden");
+        // load the results via a second API call
+        buildClubDash(clubName, resultsDash);
       } else {
         // console.log("Club not in list!")
         noResults.classList.remove("hidden");
@@ -165,3 +165,14 @@ let stadiumNameID = [
         "Paris Saint Germain": 85
     }
 ]
+
+function buildClubDash(clubName, resultsDash) {
+    resultsDash.classList.remove('hidden');
+    let renderedClubHeading = document.createElement("h2");
+    let renderedClubName = document.createTextNode(clubName);
+
+    renderedClubHeading.appendChild(renderedClubName);
+
+    resultsDash.appendChild(renderedClubHeading);
+}
+
