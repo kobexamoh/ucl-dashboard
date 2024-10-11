@@ -76,6 +76,7 @@ let clearDash = document.querySelector("#clearDash");
 clearDash.addEventListener("click", clearDashboardData);
 
 function clearDashboardData(evt) {
+    // TODO: only run this IF an alert has popped up and the user has confirmed that they DO want to clear the dashboard
     evt.preventDefault();
     let dashboardData = resultsDash.lastElementChild;
     while (resultsDash.children.length > 0) {
