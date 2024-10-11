@@ -65,7 +65,6 @@ function createClubDash(evt) {
         // load the results via a second API call
         buildClubDash(clubName, resultsDash);
       } else {
-        // console.log("Club not in list!")
         noResults.classList.remove("hidden");
       }
     //return clubName;
