@@ -71,6 +71,14 @@ function createClubDash(evt) {
 };
 // END OF TODO
 
+let clearDash = document.querySelector("#clearDash");
+clearDash.addEventListener("submit", clearDashboardData);
+
+function clearDashboardData(evt) {
+    evt.preventDefault();
+    // TODO: select the dashboard and set its children to empty
+}
+
 // sample data based on response object
 let bigArray = [
      {
