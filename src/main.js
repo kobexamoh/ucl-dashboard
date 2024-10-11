@@ -71,12 +71,17 @@ function createClubDash(evt) {
 };
 // END OF TODO
 
+// TODO: place this functionality into a separate function (or file)
 let clearDash = document.querySelector("#clearDash");
-clearDash.addEventListener("submit", clearDashboardData);
+clearDash.addEventListener("click", clearDashboardData);
 
 function clearDashboardData(evt) {
     evt.preventDefault();
-    // TODO: select the dashboard and set its children to empty
+    let dashboardData = resultsDash.lastElementChild;
+    while (resultsDash.children.length > 0) {
+        resultsDash.removeChild(dashboardData);
+        dashboardData = resultsDash.lastElementChild; // have to reassign it again because otherwise it is set to null
+    }
 }
 
 // sample data based on response object
@@ -176,6 +181,7 @@ let stadiumNameID = [
 function buildClubDash(clubName, resultsDash) {
     resultsDash.classList.remove('hidden');
     let renderedClubHeading = document.createElement("h2");
+    renderedClubHeading.classList.add("text-3xl")
     let renderedClubName = document.createTextNode(clubName);
 
     renderedClubHeading.appendChild(renderedClubName);
