@@ -76,12 +76,16 @@ let clearDash = document.querySelector("#clearDash");
 clearDash.addEventListener("click", clearDashboardData);
 
 function clearDashboardData(evt) {
-    // TODO: only run this IF an alert has popped up and the user has confirmed that they DO want to clear the dashboard
-    evt.preventDefault();
-    let dashboardData = resultsDash.lastElementChild;
-    while (resultsDash.children.length > 0) {
-        resultsDash.removeChild(dashboardData);
-        dashboardData = resultsDash.lastElementChild; // have to reassign it again because otherwise it is set to null
+    let confirmation = "Do you want to clear the dashboard data? This is irreversible unless you search for your club again!";
+    if (confirm(confirmation)) {
+        evt.preventDefault();
+        let dashboardData = resultsDash.lastElementChild;
+        while (resultsDash.children.length > 0) {
+            resultsDash.removeChild(dashboardData);
+            dashboardData = resultsDash.lastElementChild; // have to reassign it again because otherwise it is set to null
+        }
+    } else {
+        return; // I'm not actually sure if this is valid JS. I should confirm that.
     }
 }
 
