@@ -183,6 +183,7 @@ let stadiumNameID = [
     }
 ]
 
+// display details in the dashboard
 function buildClubDash(clubName, resultsDash) {
     resultsDash.classList.remove('hidden');
     let renderedClubHeading = document.createElement("h2");
@@ -193,4 +194,3 @@ function buildClubDash(clubName, resultsDash) {
 
     resultsDash.appendChild(renderedClubHeading);
 }
-
