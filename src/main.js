@@ -15,6 +15,7 @@ let requestOptions = {
 
 const baseURL = "https://v3.football.api-sports.io/";
 const allTeams = "teams?league=2&season=2024"
+const imgURL = "https://media.api-sports.io/football/teams/"
 
 // on page load, create an empty object
 let clubNameIDs = {};
@@ -193,4 +194,13 @@ function buildClubDash(clubName, resultsDash) {
     renderedClubHeading.appendChild(renderedClubName);
 
     resultsDash.appendChild(renderedClubHeading);
+
+    // display the club logo -- you need the club ID for this
+
+        // make the request for the logo
+
+        // create an img element
+        // create a node for the element
+        // append the node to the element
+        // place the img element inside the #logo id
 }
